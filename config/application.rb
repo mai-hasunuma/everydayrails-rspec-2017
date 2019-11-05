@@ -14,5 +14,15 @@ module Projects
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.generators do |g|
+      g.test_framework :rspec,
+      # view_specs: false はビュースペックを作成しないことを指定します。
+      view_specs: false,
+      # helper_specs: false はヘルパーファイル用のスペックを作成しないことを指定します。ヘルパー ファイルは Rails がコントローラごとに作成するファイルです。RSpec を自在に操れるようになって きたら、このオプションを true にしてヘルパーファイルをテストするようにしても良いでしょう。
+      helper_specs: false,
+      # routing_specs: false は config/routes.rb 用のスペックファイルの作成を省略
+      routing_specs: false,
+      request_specs: false
+    end
   end
 end
